@@ -7,27 +7,27 @@ var questions = [
         question: "What does HTML stand for?",
         choices: ["Hyper Text Markup Language", "Hypertext Transfer Protocol", "High Tech Machine Language", "Home Tool Maintenance Language"],
         answer: "Hyper Text Markup Language",
-      },
-      {
+    },
+    {
         question: "Which tag is used to define a paragraph in HTML?",
         choices: ["<p>", "<h1>", "<a>", "<img>"],
         answer: "<p>",
-      },
-      {
+    },
+    {
         question: "Which CSS property changes the text color?",
         choices: ["background-color", "font-style", "text-color", "color"],
         answer: "color",
-      },
-      {
+    },
+    {
         question: "Which JavaScript keyword is used to declare a variable?",
         choices: ["let", "variable", "var", "const"],
         answer: "var",
-      },
-      {
+    },
+    {
         question: "What is the purpose of the 'document.getElementById()' method?",
         choices: ["Access a specific HTML element", "Define a new HTML tag", "Create a CSS class", "Add an event listener"],
         answer: "Access a specific HTML element",
-      },
+    },
 ]
 
 var startButton = document.getElementById('start-button');
@@ -35,8 +35,33 @@ var startPage = document.getElementById('start-page');
 var quizPage = document.getElementById('quiz-page');
 
 var timerDisplay = document.getElementById('timer-display');
-var timer; 
-var timeRemaining = 120; 
+var timer;
+var timeRemaining = 120;
 
 startButton.addEventListener('click', startQuiz);
 
+function startQuiz() {
+    startPage.style.display = 'none';
+    quizPage.style.display = 'block';
+    showQuestion();
+    startTimer();
+}
+
+function startTimer() {
+    timerDisplay.innerText = timeRemaining;
+
+    timer = setInterval(function () {
+        timeRemaining--;
+
+        if (timeRemaining >= 0) {
+            timerDisplay.innerText = formatTime(timeRemaining);
+        } else {
+            clearInterval(timer);
+            handleQuizEnd();
+        }
+    }, 1000);
+}
+
+function formatTime(seconds) {
+    return seconds;
+}
