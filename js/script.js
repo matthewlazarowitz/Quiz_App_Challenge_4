@@ -135,3 +135,29 @@ function handleQuizEnd() {
   choicesDiv.appendChild(nameInput);
   choicesDiv.appendChild(submitButton);
 }
+
+var submittedNames = [];
+
+function handleNameSubmit() {
+    var nameInput = document.querySelector('input[type="text"]');
+    var userName = nameInput.value.trim();
+  
+    if (userName !== '') {
+        
+        var nameDisplay = document.createElement('p');
+        var timeDisplay = document.createElement('p');
+    
+        nameDisplay.innerText = 'Name: ' + userName;
+        timeDisplay.innerText = 'Time Remaining: ' + timeRemaining + ' seconds';
+    
+        
+        choicesDiv.appendChild(nameDisplay);
+        choicesDiv.appendChild(timeDisplay);
+      } else {
+      
+        console.log('Please enter a name');
+  
+    }
+  }
+
+  
