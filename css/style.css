@@ -1,0 +1,33 @@
+* {
+    background-color: black;
+    color: whitesmoke;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+
+h1 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 36px;
+}
+
+button {
+    font-size: 24px;
+  }
+  
+  .choices button {
+    font-size: 18px;
+    margin-right: 10px;
+  }
