@@ -112,3 +112,26 @@ function showQuestion() {
         choicesDiv.append(btn);
     }
 }
+
+function handleQuizEnd() {
+   
+    questionOutputEl.innerText = 'Time is up!';
+    choicesDiv.innerHTML = '';
+
+    timerDisplay.parentElement.style.display = 'none';
+
+    var nameInput = document.createElement('input');
+  nameInput.setAttribute('type', 'text');
+  nameInput.setAttribute('placeholder', 'Enter your name');
+  
+
+  var submitButton = document.createElement('button');
+  submitButton.innerText = 'Submit';
+  
+
+  submitButton.addEventListener('click', handleNameSubmit);
+
+
+  choicesDiv.appendChild(nameInput);
+  choicesDiv.appendChild(submitButton);
+}
