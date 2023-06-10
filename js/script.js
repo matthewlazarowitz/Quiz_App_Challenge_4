@@ -65,3 +65,31 @@ function startTimer() {
 function formatTime(seconds) {
     return seconds;
 }
+
+function handleChoiceClick(event) {
+    var selectedChoice = event.target.innerText;
+    var currentQuestion = questions[currentQuestionIndex];
+
+    if (selectedChoice === currentQuestion.answer) {
+        
+        choicesDiv.innerHTML = '';
+
+        
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            
+            handleQuizEnd();
+        }
+    } else {
+        
+        timeRemaining -= 10; 
+
+        if (timeRemaining < 0) {
+            timeRemaining = 0; 
+        }
+
+        timerDisplay.innerText = formatTime(timeRemaining);
+    }
+}
