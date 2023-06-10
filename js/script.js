@@ -93,3 +93,22 @@ function handleChoiceClick(event) {
         timerDisplay.innerText = formatTime(timeRemaining);
     }
 }
+
+function showQuestion() {
+    var questionObj = questions[currentQuestionIndex];
+
+    questionOutputEl.innerText = questionObj.question;
+
+    choicesDiv.innerHTML = ''; 
+
+    for (var i = 0; i < questionObj.choices.length; i++) {
+        var choiceStr = questionObj.choices[i];
+        var btn = document.createElement('button');
+        btn.innerText = choiceStr;
+
+    
+        btn.addEventListener('click', handleChoiceClick);
+
+        choicesDiv.append(btn);
+    }
+}
